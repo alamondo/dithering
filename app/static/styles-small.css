@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #2f2f2f;
+  --secondary-color: #111111;
+  --font-color: #cccccc;
+  --bg-color: #161625;
+  --heading-color: #818cab;
+}
+
+[data-theme="light"] {
+  --primary-color: #f1f1f1;
+  --secondary-color: #ffffff;
+  --font-color: #000000;
+  --bg-color: #fff;
+  --heading-color: #292922;
+}
+
+body {
+  font-size: 40px;
+  padding: 10px;
+  background: var(--primary-color);
+  color: var(--font-color);
+}
+
+.hidden-on-mobile{
+  display: none;
+}
+
+.image-view{
+  width: 100%;
+}
+
+.list {
+  width: 100%;
+  height: 70px;
+  padding: 5px 0px;
+  margin-top: 15px;
+  font-size: 40px;
+  border-radius: 5px;
+  text-align-last: right;
+}
+
+.container {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-rows: 150px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.text-container{
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+}
+
+
+.header {
+  padding: 30px;
+  text-align: center;
+  background-color: var(--secondary-color);
+  line-height: 90px;
+  font-size: 45px
+}
+
+.leftcolumn {
+  float: left;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3
+}
+
+.rightcolumn {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+}
+
+.controlsContainer{
+  display: grid;
+  grid-gap: 5px;
+  grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+}
+
+.btn-on-mobile{
+  height: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 50px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  border-radius: 5px;
+  margin-top: 25px;
+}
+
+.label{
+  text-align: center;
+  line-height: 100px;
+}
+
+.btn {
+  width: 100%;
+  border: 5px solid;
+  background-color: var(--secondary-color);
+  border-color: #e7e7e7;
+  color: var(--font-color);
+  padding: 14px 28px;
+  font-size: 50px;
+  cursor: pointer;
+  text-align: center;
+  transition: all .2s;
+  transition-property: background-color, color;
+}
+
+#namer input {
+ border: 0;
+ border-bottom: 5px solid #e7e7e7;
+ width: 100%;
+ font-size: 40px;
+ line-height: 100px;
+ height: 100px;
+ text-align: center;
+ padding: 10px;
+ background: transparent;
+ color: #e7e7e7;
+}
+
+
+#namer input:focus {
+ outline: 0;
+	color: #e7e7e7;
+}
+
+.color-element{
+  position: relative;
+  border-radius: 5px;
+  height: 101px;
+  line-height: 101px;
+  margin-top: 3px;
+  vertical-align: middle;
+  margin-left: 3px;
+  margin-right: 3px;
+  margin-bottom: 3px;
+  opacity: 1;
+  text-shadow: 1px 1px 2px black, 0 0 1em #161625, 0 0 0.2em #161625;
+  color: #ffffff;
+}
+
+.nav{
+  height: 100%;
+  line-height: 120px;
+  font-size: 60px;
+  padding: 0px 0px;
+}

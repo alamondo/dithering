@@ -1,0 +1,154 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+	<div class="leftcolumn" width="100%">
+		<div class="card" width="100%" id="card">
+			<input id="browse" name="browse" onchange="previewFile()" style="display: none;" type="file" accept="image/*">
+			<img id="output" class="image-view" style="display: none">
+			<img id="loader" src="static/loading.svg" style="position: absolute; top: 50%; margin-left: auto;display: none;">
+		</div>
+	</div>
+
+	<div class="rightcolumn">
+		<div class="card" id="controlCard" width="100%">
+			<div class="controlsContainer" id="controlContainer">
+				<div class="controlRow">
+					<h1 style="margin-top: 0px; text-align: center">
+						Controls
+					</h1>
+				</div>
+
+				<div class="controlRow">
+					<label class="btn default btn-on-mobile" for="browse" onclick="document.getElementById('browse').value = ''" style="display: inline-block;">Upload Image</label>
+				</div>
+
+				<div class="controlRow" style="display: grid; grid-template-columns: 49.5% 49.5%; grid-gap: 1%;">
+					<button class="btn default btn-on-mobile" id="render" type="submit">Render</button>
+					<button class="btn default btn-on-mobile" id="reset" >Reset</button>
+				</div>
+
+				<div class="controlRow">
+					<a id="download"  href="" download>
+						<button id="downloadBtn" class="btn default btn-on-mobile" >Download</button>
+					</a>
+				</div>
+
+				<div class="controlRow inputRow">
+					<div class="controlOutput">
+						<div id="namer">
+							<input id="processingResIndicator" size="4" type="number" max="1024" min="64">
+						</div>
+					</div>
+
+					<div class="slidecontainer">
+						<input class="slider" id="processingResSlider" max="1024" min="64" type="range" value="128" step="1">
+					</div>
+					<div class="label">Resolution</div>
+				</div>
+
+				<div class="controlRow inputRow">
+					<div class="label" id="outputResIndicator">
+						2048
+					</div>
+
+					<div class="slidecontainer">
+						<input class="slider" id="outputResSlider" max="32" min="1" type="range" value="16" step="1">
+					</div>
+					<div class="label">Output scaling</div>
+				</div>
+
+				<div class="controlRow inputRow">
+					<div class="slidecontainer" style=" grid-column: 2;">
+						<input class="slider onoff" id="colorSlider" max="1" min="0" type="range" value="0">
+					</div>
+					<div class="label">Color / BW</div>
+				</div>
+
+				<div class="controlRow inputRow" id="algo">
+					<div style=" grid-column: 2;">
+						<select class="list" id="algoList">
+							<option value="FS">
+								Floyd–Steinberg
+							</option>
+							<option value="JJN">
+								Jarvis, Judice & Ninke
+							</option>
+							<option value="BAYER">
+								Bayer
+							</option>
+							<option value="HALFTONE">
+								Halftone
+							</option>
+						</select>
+					</div>
+					<div class="label">Algorithm</div>
+				</div>
+
+				<div class="controlRow inputRow" id="pal">
+					<div style=" grid-column: 2;">
+						<select class="list" id="palList">
+							<option value="ADA">
+								Adaptive
+							</option>
+							<option value="WEB">
+								Web Safe
+							</option>
+							<option value="CMYK">
+								CMYK
+							</option>
+							<option value="RGB3COLORS">
+								Red, Green, Blue
+							</option>
+							<option value="C64">
+								Comodore 64
+							</option>
+							<option value="GB">
+								GameBoy
+							</option>
+							<option value="3RGB">
+								3-bit RGB
+							</option>
+							<option value="2GS">
+								2-bit Grayscale
+							</option>
+							<option value="CUSTOM">
+								Custom
+							</option>
+						</select>
+					</div>
+					<div class="label">Palette</div>
+				</div>
+
+				<div class="controlRow inputRow" id="colorCount">
+					<div class="label" id="colorCountIndicator">
+						16
+					</div>
+
+					<div class="slidecontainer">
+						<input class="slider" id="colorCountSlider" max="64" min="2" type="range" value="8">
+					</div>
+					<div class="label"># of colors</div>
+				</div>
+
+				<div class="controlRow inputRow" id="palettePicker" style="display: none;">
+
+					<input class="btn default" id="colorInput" onchange="btnColorUpdate()" style="width:100%;height: 100%;padding: 0px 0px; visibility: hidden;" type="color" value="#7d7d7d">
+
+					<div class="slidecontainer" style="display: grid; grid-template-columns: 47% 47%; grid-gap: 6%;">
+						<label class="btn" id="colorButton"for="colorInput" style="background-color: #7d7d7d;"></label>
+						<input class="btn default" id="addColorBtn" onclick="addColor()" style="width:100%;padding: 0px 0px;" type="button" value="Add">
+					</div>
+					<div class="label">Pick color</div>
+				</div>
+
+				<div class="controlRow colorsContainer" id="paletteContainer" style="text-align: center;border-radius: 12px;border-color: #e7e7e7; border-width: 2px; border-style: solid; display: none;" width="100%">
+				</div>
+			</div>
+			<div class="spacing"/>
+		</div>
+	</div>
+	<script src="static/scripts.js" type="text/javascript">
+	</script>
+{% endblock %}

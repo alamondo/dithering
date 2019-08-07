@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="theme-color" content="#2f2f2f"/>
+        <link href="https://fonts.googleapis.com/css?family=Nunito:600&display=swap" rel="stylesheet">
+        <link rel="icon" href="static/icon.png">
+        <link rel="stylesheet" href="static/styles.css" type="text/css">
+        <link rel="stylesheet" href="static/styles-small.css" media="screen and (max-width:1000px)">
+        <link rel="stylesheet" href="static/styles-large.css" media="screen and (min-width:1001px)" >
+
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js">
+        </script>
+	<title>
+		Dithering
+	</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header" style="color: #e7e7e7; vertical-align: middle; background-size: 100%; background-image: url('static/gradient.png'); text-shadow: 2px 2px 2px black, 0 0 1em #ffffff, 0 0 01em #161625">
+                    Tiny dithering app
+            </div>
+            <div class="header" style="display: grid;grid-template-columns:49% 49%;grid-gap: 2%; padding: 10px;">
+                <a href="/" style="text-decoration:none;">
+                    <div class="nav btn default" >Home</div>
+                </a>
+                <a href="/about" style="text-decoration:none;">
+                    <div class="nav btn default" >About</div>
+                </a>
+            </div>
+
+            {% block content %}{% endblock %}
+
+        </div>
+
+    </body>
+</html>

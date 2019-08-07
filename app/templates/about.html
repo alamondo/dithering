@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="card" style="grid-column-start: 1; grid-column-end: 3; grid-row-start: 2; grid-row-end: 4;">
+    <div class="text-container">
+        <h2>
+            About Dithering
+        </h2>
+        <p>
+            Dithering is a technique used to achieve illusion of „colour depth” with limited colour palette.
+        </p>
+        <p>
+            On this site there are implemented two types of dithering algorithms: ordered dithering and error diffusion dithering.
+        </p>
+        <p>
+            First uses threshold map to determine output colour on pixel by pixel basis.
+            Size of this map should be significantly smaller than size of the picture. Used maps (Bayer, Halftone) differ by size and and values of thresholds.
+        </p>
+        <p>
+            Second uses fixed threshold of 50% but distributes quantification error onto neighbouring pixels using kernel which describes what fraction of error should be added to specific pixels.
+            Used error diffusion (Floyd–Steinberg; Jarvis, Judice & Ninke) algorithms differ by size of kernel.
+        </p>
+
+        <h2>
+            Examples
+        </h2>
+        <p>
+            Different algorithms
+        </p>
+        <div class="inlieImageContainer">
+            <figure class="exampleImage">
+                <img src="static/ex/BAYER.png">
+                <figcaption style="text-align: center;">
+                    Bayer
+                </figcaption>
+            </figure>
+            <figure class="exampleImage">
+                <img src="static/ex/FS.png">
+                <figcaption style="text-align: center;">
+                    Floyd–Steinberg
+                </figcaption>
+            </figure>
+            <figure class="exampleImage">
+                <img src="static/ex/JJS.png">
+                <figcaption style="text-align: center;">
+                    Jarvis, Judice & Ninke
+                </figcaption>
+            </figure>
+        </div>
+        <p>
+            Different palettes
+        </p>
+        <div class="inlieImageContainer">
+            <figure class="exampleImage">
+                <img src="static/ex/WS.png">
+                <figcaption style="text-align: center;">
+                    Web Safe
+                </figcaption>
+            </figure>
+            <figure class="exampleImage">
+                <img src="static/ex/c64.png">
+                <figcaption style="text-align: center;">
+                    Comodore 64
+                </figcaption>
+            </figure>
+            <figure class="exampleImage">
+                <img src="static/ex/3bit.png">
+                <figcaption style="text-align: center;">
+                    3-bit RGB
+                </figcaption>
+            </figure>
+        </div>
+        <p>
+            Different resolutions
+        </p>
+        <div class="inlieImageContainer">
+            <figure class="exampleImage">
+                <img src="static/ex/64.png">
+                <figcaption style="text-align: center;">
+                    64px
+                </figcaption>
+            </figure>
+            <figure class="exampleImage">
+                <img src="static/ex/128.png">
+                <figcaption style="text-align: center;">
+                    128px
+                </figcaption>
+            </figure>
+            <figure class="exampleImage">
+                <img src="static/ex/256.png">
+                <figcaption style="text-align: center;">
+                    256px
+                </figcaption>
+            </figure>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
