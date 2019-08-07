@@ -4,7 +4,6 @@ var color = 0;
 var algoVal = "FS";
 var palVal = "ADA";
 var colorCountVal = 16;
-var base64img = "";
 var algo = document.getElementById("algo");
 var pal = document.getElementById("pal");
 var colorCount = document.getElementById("colorCount");
@@ -140,14 +139,6 @@ function previewFile() { 
 
 const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
 
-function switchTheme(e) {
-	if (e.target.checked) {
-		document.documentElement.setAttribute('data-theme', 'light');
-	} else {
-		document.documentElement.setAttribute('data-theme', 'dark');
-	}
-}
-
 const hexToRgb = hex => hex.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (m, r, g, b) => '#' + r + r + g + g + b + b).substring(1).match(/.{2}/g).map(x => parseInt(x, 16))
 var deleteColor = function(element) {
 	colorPaletteMap.delete(parseInt(element.target.id));
@@ -168,7 +159,11 @@ var addColor = function() {
 }
 
 $("#reset").click(function() {
-    document.querySelector('img').src = imageCache;
+    if (document.getElementById('output').src == ""){
+        return false;
+    } else {
+        document.querySelector('img').src = imageCache;
+    }
 });
 
 $("#render").click(function() {
