@@ -35,9 +35,9 @@ document.getElementById("processingResSlider").oninput = function() {
         return false;
     } else {
 		document.getElementById("processingResIndicator").value = this.value;
-		document.getElementById("outputResIndicator").innerHTML = Math.round(2000/this.value) * this.value;
+		document.getElementById("outputResIndicator").innerHTML = Math.round(1000/this.value) * this.value;
 		prcoessingResVal = this.value;
-		document.getElementById("outputResSlider").value = Math.round(2000/this.value);
+		document.getElementById("outputResSlider").value = Math.round(1000/this.value);
 	}
 }
 
@@ -49,9 +49,9 @@ document.getElementById("processingResIndicator").onchange = function() {
   }
 	else {
 		document.getElementById("processingResSlider").value = this.value;
-		document.getElementById("outputResIndicator").innerHTML = Math.round(2000/this.value) * this.value;
+		document.getElementById("outputResIndicator").innerHTML = Math.round(1000/this.value) * this.value;
 		prcoessingResVal = this.value;
-		document.getElementById("outputResSlider").value = Math.round(2000/this.value);
+		document.getElementById("outputResSlider").value = Math.round(1000/this.value);
 	}
 }
 
