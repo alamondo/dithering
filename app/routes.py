@@ -23,13 +23,14 @@ def index():
 def dithering():
     return render_template('dithering.html')
 
+
 @app.route('/about')
 def about():
     return render_template('about.html')
 
 
 @app.route('/dither', methods=['GET', 'POST'])
-def imgdither():
+def img_dither():
 
     processVal = int(request.form['prcoessingResVal'])
     scaleVal = int(request.form['outputScaleVal'])
