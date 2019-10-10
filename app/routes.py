@@ -29,6 +29,11 @@ def about():
     return render_template('about.html')
 
 
+@app.route('/code')
+def code():
+    return render_template('code.html')
+
+
 @app.route('/dither', methods=['GET', 'POST'])
 def img_dither():
 
