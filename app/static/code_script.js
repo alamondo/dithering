@@ -1,6 +1,7 @@
 var morse_string = []
 var flashGO = 0
 var codePos = 0
+var codePosCheck = 0
 var MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
                     'C':'-.-.', 'D':'-..', 'E':'.',
                     'F':'..-.', 'G':'--.', 'H':'....',
@@ -14,6 +15,7 @@ var MORSE_CODE_DICT = { 'A':'.-', 'B':'-...',
 var start_morse = function() {
 	flashGO = 1
 	codePos = 0
+  codePosCheck = 0
 	morse_string = MORSE_CODE_DICT[String.fromCharCode(Math.floor(Math.random() * 26) + 65)]
 	morse_string += " "
 	morse_string += MORSE_CODE_DICT[String.fromCharCode(Math.floor(Math.random() * 26) + 65)]
@@ -49,4 +51,46 @@ async function off_flash(offTime){
     $("#blinker").css("background", "rgb(0, 0, 0)")
     await sleep(offTime)
     on_flash()
+}
+async function dotClick() {
+  if (morse_string.charAt(codePosCheck) == ".") {
+    right()
+    codePosCheck += 1
+  }
+  else {
+    wrong()
+  }
+}
+async function dashClick() {
+  if (morse_string.charAt(codePosCheck) == "-") {
+    right()
+    codePosCheck += 1
+  }
+  else {
+    wrong()
+  }
+}
+async function spaceClick() {
+  if (morse_string.charAt(codePosCheck) == " ") {
+    right()
+    codePosCheck += 1
+  }
+  else {
+    wrong()
+  }
+}
+
+async function right(){
+  $("#blinker").css("background", "rgb(0, 150, 0)")
+  await sleep(100)
+  $("#blinker").css("background", "rgb(0, 0, 0)")
+  if (codePosCheck == morse_string.length){
+    alert("Correct")
+  }
+}
+async function wrong(){
+  $("#blinker").css("background", "rgb(150, 0, 0)")
+  await sleep(100)
+  $("#blinker").css("background", "rgb(0, 0, 0)")
+  alert("Wrong")
 }

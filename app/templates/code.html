@@ -18,8 +18,13 @@
 	</head>
 	<body>
 		<div class="codeContainer">
-			<input class="btn code" id="111" onclick="start_morse()" type="button" value="Generate">
+			<input class="btn code default " id="111" onclick="start_morse()" type="button" value="Generate">
 			<input class="btn code" id="blinker" type="button">
+      <div class="header" style="grid-column: 2; grid-row: 3;display: grid;grid-template-columns:30% 30% 30%; grid-gap: 5%; padding: 10px;">
+        <input class="btn default " id="121" type="button" onclick="dotClick()" value="*" style="grid-column: 1;">
+  			<input class="btn default " id="122" type="button" onclick="dashClick()" value="-">
+        <input class="btn default " id="123" type="button" onclick="spaceClick()" value="space">
+      </div>
 		</div>
 	</body>
 </html>
